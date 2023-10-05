@@ -31,7 +31,9 @@ final class UpdateContactMapperTest extends TestCase
     public function test_it_updates_contact_from_request_2() {
         $request = new UpdateContactRequest2();
         $request->merge([
-            'contact.name' => 'John'
+            'contact' => [
+                'name' => 'John'
+            ]
         ]);
         $id = '2e43a655-e24d-4de0-93f9-5e33b0c1f8ac';
 
@@ -58,7 +60,9 @@ final class UpdateContactMapperTest extends TestCase
     public function test_it_has_no_validation_errors_for_request_2() {
         $request = new UpdateContactRequest2();
         $request->merge([
-            'contact.name' => 'John'
+            'contact' => [
+                'name' => 'John'
+            ]
         ]);
 
         $validator = Validator::make($request->all(), $request->rules());
